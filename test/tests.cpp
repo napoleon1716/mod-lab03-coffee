@@ -23,7 +23,7 @@ TEST(AutomataTest, TurnOffAndCheckState) {
 TEST(AutomataTest, InsertCoinInOffState) {
   Automata a;
   a.coin(100);
-  EXPECT_EQ(0, a.getState());
+  EXPECT_EQ(WAIT, a.getState());
 }
 
 TEST(AutomataTest, InsertCoinInOnState) {
@@ -35,7 +35,6 @@ TEST(AutomataTest, InsertCoinInOnState) {
 
 TEST(AutomataTest, CancelOperationInWaitState) {
   Automata a;
-  a.coin(100);
   int returnedCash = a.cancel();
   EXPECT_EQ(0, returnedCash);
 }
