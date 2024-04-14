@@ -9,14 +9,14 @@ int main() {
     Automata a;
     int b;
     a.on();
-    cout << "automat vkluchen!\n";
+    cout << "automat is turned on!\n";
     a.coin(200);
-    cout << "dengi zaneseni!\n";
+    cout << "deposit the money!\n";
     a.choice(1);
-    cout << "super! gotovim!\n";
+    cout << "great! cooking!\n";
     a.finish();
     b = a.cancel();
-    cout << "sdacha! " << b;
+    cout << "change! " << b;
     a.off();
-    cout << "\nautomat vikluchen!\n";
+    cout << "\nautomat is turned off!\n";
 }
