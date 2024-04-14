@@ -47,18 +47,18 @@ void Automata::check() {
     if (cash - prices[choice_user - 1] >= 0)
       cook();
     else
-       state = ACCEPT;
+      state = WAIT;
   }
 }
 
 int Automata::cancel() {
   if (state == ACCEPT || state == CHECK || state == WAIT) {
-    state = WAIT;
     int c = cash;
+    state = WAIT;
     cash = 0;
     return c;
   } else {
-      return 0;
+    return -1;
   }
 }
 
