@@ -1,20 +1,22 @@
 // Copyright 2022 UNN-IASR
 #include <iostream>
-#include <string>
 #include "Automata.h"
 
+using std::string;
+using std::cout;
 
 int main() {
-    Automata drinking_machine;
-    drinking_machine.on();
-    drinking_machine.coin(1000);
-    drinking_machine.choice(5);  // соответствует выбору FlatWhite
-    if (drinking_machine.check()) {
-        drinking_machine.cook();
-        drinking_machine.finish();
-    } else {
-        drinking_machine.cancel();
-    }
-    drinking_machine.off();
-    return 0;
+    Automata a;
+    int b;
+    a.on();
+    cout << "automat vkluchen!\n";
+    a.coin(200);
+    cout << "dengi zaneseni!\n";
+    a.choice(1);
+    cout << "super! gotovim!\n";
+    a.finish();
+    b = a.cancel();
+    cout << "sdacha! " << b;
+    a.off();
+    cout << "\nautomat vikluchen!\n";
 }
