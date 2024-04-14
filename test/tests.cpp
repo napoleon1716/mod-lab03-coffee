@@ -50,9 +50,9 @@ TEST(AutomataTest, CancelOperationInAcceptState) {
 TEST(AutomataTest, ChooseDrinkInAcceptState) {
   Automata a;
   a.on();
-  a.coin(100);
+  a.coin(50);
   a.choice(1);
-  EXPECT_EQ(CHECK, a.getState());
+  EXPECT_EQ(WAIT, a.getState());
 }
 
 TEST(AutomataTest, ChooseDrinkInCheckState) {
