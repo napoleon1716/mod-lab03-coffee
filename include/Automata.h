@@ -1,44 +1,35 @@
 // Copyright 2022 UNN-IASR
 #pragma once
-#include <iostream>
 #include <string>
-
-enum STATES {OFF, WAIT, ACCEPT, CHECK, COOK};
-
 using std::string;
 
+enum STATES {
+  OFF,
+  WAIT,
+  COOK,
+  ACCEPT,
+  CHECK
+};
+
 class Automata {
- public:
-        STATES state;  // - текущее состояние автомата
-        int cash;  // - для хранения текущей суммы
-        const string menu[10] = {
-            "Espresso",
-            "Americano",
-            "Cappuccino",
-            "Latte",
-            "FlatWhite",
-            "Macchiato",
-            "BlackTea",
-            "GreenTea",
-            "Cacao",
-            "HotChocolate"
-        };
-        int option;  // - выбор напитка
-        const int prices[10] = {
-            80, 100, 150, 180, 160, 190, 120, 120, 140, 170
-            };
+ private:
+  int cash;
+  string menu[4] = { "Cappuccino", "Latte",
+  "Green tea", "Black tea" };
+  int prices[4] = { 120, 130, 100, 100 };
+  STATES state;
+  int choice_user;
 
  public:
-        Automata();
-        void on();  // - включение автомата
-        void off();  // - выключение автомата
-        void coin(int x);  // - занесение денег на счёт пользователем
-        void getMenu();  // - считывание меню
-        void getState();  // - считывание текущего состояния для пользователя
-        void choice(int x);  // - выбор напитка пользователем
-        bool check();  // - проверка наличия необходимой суммы
-        int getCash();  // - возвращает сдачу/деньги
-        void cancel();  // - отмена сеанса обслуживания пользователем
-        void cook();  // - имитация процесса приготовления напитка
-        void finish();  // - завершение обслуживания пользователя
+  Automata();
+  void on();
+  void off();
+  void coin(int c);
+  string* etMenu();
+  STATES getState();
+  void choice(int c);
+  void check();
+  int cancel();
+  void cook();
+  void finish();
 };
