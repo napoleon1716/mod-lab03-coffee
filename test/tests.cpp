@@ -55,3 +55,40 @@ TEST(taskA, test6) {
   int result = a.getState();
   EXPECT_EQ(OFF, result);
 }
+
+TEST(taskA, test7) {
+  Automata a = Automata();
+  a.on();
+  a.coin(50);
+  a.choice(1);
+  int result = a.getState();
+  EXPECT_EQ(WAIT, result);
+}
+
+TEST(taskA, test8) {
+  Automata a = Automata();
+  a.on();
+  a.coin(50);
+  a.choice(1);
+  a.finish();
+  int result = a.cancel();
+  EXPECT_EQ(50, result);
+}
+
+TEST(taskA, test9) {
+  Automata a = Automata();
+  a.on();
+  a.coin(100);
+  a.choice(2);
+  int result = a.getState();
+  EXPECT_EQ(WAIT, result);
+}
+
+TEST(taskA, test10) {
+  Automata a = Automata();
+  a.on();
+  a.coin(200);
+  a.choice(2);
+  int result = a.getState();
+  EXPECT_EQ(ACCEPT, result);
+}
